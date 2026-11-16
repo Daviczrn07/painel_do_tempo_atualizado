@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Painel de previsão do tempo em tempo real.">
+  <title>Painel do Tempo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="cabecalho">
+      <span class="etiqueta">CLIMA EM TEMPO REAL</span>
+      <h1>Painel do Tempo</h1>
+      <p>Consulte as condições climáticas da sua cidade.</p>
+    </header>
+
+    <form id="form-busca" class="busca">
+      <label for="cidade">Nome da cidade</label>
+      <div class="controles-busca">
+        <input
+          type="text"
+          id="cidade"
+          name="cidade"
+          placeholder="Ex.: Bauru, São Paulo..."
+          autocomplete="off"
+          required
+        >
+        <button type="submit" id="botao-buscar">Buscar clima</button>
+      </div>
+      <ul id="sugestoes" class="sugestoes" role="listbox" aria-label="Sugestões de cidades" hidden></ul>
+    </form>
+
+    <div id="mensagem" class="mensagem" role="status" aria-live="polite"></div>
+
+    <section id="resultado" class="resultado" aria-live="polite" hidden>
+      <div class="topo-resultado">
+        <div>
+          <p class="subtitulo">Condições atuais em</p>
+          <h2 id="nome-local">--</h2>
+          <p id="data-atualizacao" class="data-atualizacao"></p>
+        </div>
+        <div id="icone-clima" class="icone-clima" aria-hidden="true">🌤️</div>
+      </div>
+
+      <div class="temperatura">
+        <span id="temperatura">--</span><span class="graus">°C</span>
+      </div>
+      <p id="descricao" class="descricao">--</p>
+
+      <div class="detalhes">
+        <article class="detalhe">
+          <span class="detalhe-icone" aria-hidden="true">🌡️</span>
+          <div>
+            <p>Sensação térmica</p>
+            <strong id="sensacao">-- °C</strong>
+          </div>
+        </article>
+        <article class="detalhe">
+          <span class="detalhe-icone" aria-hidden="true">💧</span>
+          <div>
+            <p>Umidade do ar</p>
+            <strong id="umidade">--%</strong>
+          </div>
+        </article>
+        <article class="detalhe">
+          <span class="detalhe-icone" aria-hidden="true">💨</span>
+          <div>
+            <p>Velocidade do vento</p>
+            <strong id="vento">-- km/h</strong>
+          </div>
+        </article>
+      </div>
+
+      <section class="previsao-semana" aria-labelledby="titulo-previsao">
+        <p class="subtitulo">O que esperar</p>
+        <h3 id="titulo-previsao">Previsão para os próximos 7 dias</h3>
+        <div id="lista-previsao" class="lista-previsao"></div>
+      </section>
+    </section>
+
+    <footer>
+      <p>Dados meteorológicos fornecidos por Open-Meteo.</p>
+    </footer>
+  </main>
+</body>
+</html>
